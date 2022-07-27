@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRd;
-    float speed = 10.0f;
-
+    public float speed = 10.0f;
+    
     // 게임이 처음 실행될때
     void Start()
     {
@@ -16,7 +16,55 @@ public class PlayerController : MonoBehaviour
     //게임이 실행될때 각 프레임별로 호풀
     void Update()
     {
-       // print("Update");
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            playerRd.AddForce(-speed, 0, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            playerRd.AddForce(speed, 0,0);
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            playerRd.AddForce(0, 0,speed);
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            playerRd.AddForce(0, 0, -speed);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // print("Update");
 
         //if(Input.GetKey(KeyCode.RightArrow)==true)
         //{
@@ -45,32 +93,35 @@ public class PlayerController : MonoBehaviour
         //    transform.Translate(Vector3.up * speed * Time.deltaTime);
 
         //}
-        if (Input.GetKey(KeyCode.D) == true)
-        {
-            playerRd.AddForce(speed, 0f, 0f);
+        //if (Input.GetKey(KeyCode.D) == true)
+        //{
+        //    playerRd.AddForce(speed, 0f, 0f);
 
-        }
-        if (Input.GetKey(KeyCode.A) == true)
-        {
-            playerRd.AddForce(-speed, 0f, 0f);
+        //}
+        //if (Input.GetKey(KeyCode.A) == true)
+        //{
+        //    playerRd.AddForce(-speed, 0f, 0f);
 
-        }
-        if (Input.GetKey(KeyCode.W) == true)
-        {
-            playerRd.AddForce( 0f, 0f,speed);
+        //}
+        //if (Input.GetKey(KeyCode.W) == true)
+        //{
+        //    playerRd.AddForce( 0f, 0f,speed);
 
-        }
-        if (Input.GetKey(KeyCode.S) == true)
-        {
-            playerRd.AddForce( 0f, 0f,-speed);
+        //}
+        //if (Input.GetKey(KeyCode.S) == true)
+        //{
+        //    playerRd.AddForce( 0f, 0f,-speed);
 
-        }
-        if (Input.GetKey(KeyCode.Space) == true)
-        {
-            playerRd.AddForce(0f,speed, 0f );
+        //}
+        //if (Input.GetKey(KeyCode.Space) == true)
+        //{
+        //    playerRd.AddForce(0f,speed, 0f );
 
-        }
+        //}
 
     }
+   
+
+
 }
 
